@@ -6,7 +6,7 @@
 /*   By: rcruz-an <rcruz-an@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:48:33 by rcruz-an          #+#    #+#             */
-/*   Updated: 2023/01/26 16:28:04 by rcruz-an         ###   ########.fr       */
+/*   Updated: 2023/05/05 15:25:44 by rcruz-an         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <stdint.h>
+# include "libft/libft.h"
 
 int		ft_printf(const char *s, ...);
 int		variables_printf(const char *s, int i, va_list arg_p);
