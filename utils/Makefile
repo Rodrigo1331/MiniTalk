@@ -6,7 +6,7 @@
 #    By: rcruz-an <rcruz-an@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/12 11:45:47 by rcruz-an          #+#    #+#              #
-#    Updated: 2023/05/05 15:36:51 by rcruz-an         ###   ########.fr        #
+#    Updated: 2023/05/08 15:23:06 by rcruz-an         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,11 @@ ft_strrchr.c ft_memcpy.c ft_memmove.c ft_tolower.c\
 ft_split.c ft_putnbr_fd.c ft_strtrim.c\
 ft_substr.c ft_isprint.c
 
-SRCS_LIBFT_B = ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c\
-ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c ft_lstmap_bonus.c\
-ft_lstnew_bonus.c ft_lstsize_bonus.c
+SRCS_LIBFT_B = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c\
+ft_lstdelone.c ft_lstiter.c ft_lstlast.c ft_lstmap.c\
+ft_lstnew.c ft_lstsize.c
 
-PRINTF = ft_printf.c ft_print_char.c ft_print_int.c ft_print_hex.c ft_print_ptr.c
+PRINTF = ft_printf.c ft_putchar.c ft_putnbr.c ft_putnbr_xX.c ft_putpointer.c ft_putstr.c
 
 CC = cc
 CFLAGS = -Werror -Wextra -Wall

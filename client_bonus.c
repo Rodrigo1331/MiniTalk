@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcruz-an <rcruz-an@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 09:23:37 by rcruz-an          #+#    #+#             */
-/*   Updated: 2023/05/29 13:12:41 by rcruz-an         ###   ########.fr       */
+/*   Created: 2023/05/29 09:44:26 by rcruz-an          #+#    #+#             */
+/*   Updated: 2023/05/29 16:08:17 by rcruz-an         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 void	message_to_server(int pid, char c)
 {
@@ -28,11 +28,19 @@ void	message_to_server(int pid, char c)
 	}
 }
 
+void	message_recived(int signal)
+{
+	if (signal == SIGUSR1)
+		ft_printf("The message was recieved by the server");
+}
+
 int	main(int ac, char **av)
 {
-	int		pid;
-	int		i;
+	int				pid;
+	int				i;
+	struct sigaction	siga;
 
+	siga.sa_handler = &message_recived;
 	i = 0;
 	if (ac != 3)
 		ft_printf("Error!\nYou need a process ID and a message as inputs\n");
@@ -41,9 +49,12 @@ int	main(int ac, char **av)
 		pid = ft_atoi(av[1]);
 		while (av[2][i])
 		{
+			sigaction(SIGUSR1, &siga, NULL);
+			sigaction(SIGUSR2, &siga, NULL);
 			message_to_server(pid, av[2][i]);
 			i++;
 		}
+		message_to_server(pid, av[2][i]);
 		message_to_server(pid, '\n');
 	}
 }
