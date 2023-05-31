@@ -6,7 +6,7 @@
 /*   By: rcruz-an <rcruz-an@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 09:23:37 by rcruz-an          #+#    #+#             */
-/*   Updated: 2023/05/29 13:12:41 by rcruz-an         ###   ########.fr       */
+/*   Updated: 2023/05/31 12:16:03 by rcruz-an         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,17 @@ void	message_to_server(int pid, char c)
 	int	bit;
 
 	bit = 0;
-	while (bit < 8)
+	if (c >= 0)
 	{
-		if ((c & (1 << bit)) == 0)
-			kill(pid, SIGUSR2);
-		else
-			kill(pid, SIGUSR1);
-		usleep(300);
-		bit++;
+		while (bit < 8)
+		{
+			if ((c & (1 << bit)) == 0)
+				kill(pid, SIGUSR2);
+			else
+				kill(pid, SIGUSR1);
+			usleep(250);
+			bit++;
+		}
 	}
 }
 

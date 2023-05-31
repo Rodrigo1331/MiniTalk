@@ -6,11 +6,17 @@
 /*   By: rcruz-an <rcruz-an@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 09:08:14 by rcruz-an          #+#    #+#             */
-/*   Updated: 2023/05/29 12:28:09 by rcruz-an         ###   ########.fr       */
+/*   Updated: 2023/05/31 12:15:55 by rcruz-an         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+void	ft_putchar_bit(char c)
+{
+	if (c >= 0)
+		write(1, &c, 1);
+}
 
 void	handler(int signal)
 {
@@ -22,7 +28,7 @@ void	handler(int signal)
 	bit++;
 	if (bit == 8)
 	{
-		write(1, &c, 1);
+		ft_putchar_bit(c);
 		bit = 0;
 		c = 0;
 	}
